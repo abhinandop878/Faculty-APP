@@ -7,7 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
 import { ViewfacultyComponent } from './viewfaculty/viewfaculty.component';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule, Routes } from '@angular/router';
+const appRoutes:Routes=[
+  {
+    path:"",component:AddFacultyComponent
+  },
+  {
+    path:"viewFaculty",component:ViewfacultyComponent
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +26,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
