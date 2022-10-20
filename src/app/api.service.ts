@@ -9,10 +9,10 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   viewFaculty=()=>{
-    return this.http.get("")
+    return this.http.get("http://localhost:8080/viewFaculty")
   }
 
   addFaculty=(data:any)=>{
-    return this.http.post("",data)
+    return this.http.post("http://localhost:8080/addFaculty",data)
   }
 }
