@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-viewfaculty',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewfacultyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myapi:ApiService) { 
+    this.fetchData()
+  }
   status:boolean=false
-  facultyData=[]
+  fetchData=()=>{
+    this.myapi.viewFaculty().subscribe((data)=>{
+      this.facultyData=data
+      this.status=true
+    })
+  }
+  facultyData:any=[]
   ngOnInit(): void {
   }
 
